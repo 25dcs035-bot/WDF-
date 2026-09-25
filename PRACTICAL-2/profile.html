@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Student Hub Portal - Profile</title>
+    <style>
+        body {
+            background-color: #eef2f6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table width="100%" border="0" cellpadding="15" cellspacing="0">
+        <tr>
+            <td align="left" valign="middle">
+                <img src="logo.jpg" alt="Student Hub Logo" width="45" height="45" align="middle">
+                <strong>
+                    <font size="6">Student Hub Portal</font>
+                </strong>
+            </td>
+            <td align="right" valign="middle">
+                <font size="6"> </font>
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+    <br>
+<table width="100%" border="0" cellpadding="10" cellspacing="0">
+        <tr>
+            <td width="130" align="center" valign="top">
+                <table border="1" width="110" height="120" cellspacing="0">
+                    <tr>
+                        <td align="center" valign="middle"> </td>
+                    </tr>
+                </table>
+            </td>
+            <td valign="top">
+                <table width="100%" border="0" cellpadding="6">
+                    <tr>
+                        <td width="120"><strong>Name</strong></td>
+                        <td><input type="text" style="width: 80%; padding: 5px;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Student ID</strong></td>
+                        <td><input type="text" style="width: 80%; padding: 5px;"></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Department</strong></td>
+                        <td>
+                            <select style="width: 80%; padding: 5px;">
+                                <option value="select department"></option>
+                                <option value="cse">Computer Science & Engineering</option>
+                                <option value="it">Information Technology</option>
+                                <option value="ME">Mechanical Engineering</option>
+                                <option value="AI">Artificial Intellgence</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <h3>General Information</h3>
+    <table width="100%" border="1" cellpadding="15" cellspacing="0" bgcolor="#ffffff">
+        <tr>
+            <td>
+                <table width="100%" border="0" cellpadding="6">
+                    <tr>
+                        <td width="180">Full Name:</td>
+                        <td><input type="text" style="width: 60%; padding: 4px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Date of birth</td>
+                        <td><input type="text" style="width: 60%; padding: 4px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="email" style="width: 60%; padding: 4px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Contact Number</td>
+                        <td><input type="text" style="width: 60%; padding: 4px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Permanent Address:</td>
+                        <td><input type="text" style="width: 60%; padding: 4px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Gender:</td>
+                        <td>
+                            <input type="radio" name="gender" id="male"> <label for="male"><b>Male</b></label>
+                            <input type="radio" name="gender" id="female"> <label for="female"><b>Female</b></label>
+                            <input type="radio" name="gender" id="other"> <label for="other"><b>other</b></label>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+
+    <h3>Academic information</h3>
+    <table width="100%" border="1" cellpadding="15" cellspacing="0" bgcolor="#ffffff">
+        <tr>
+            <td>
+                <table width="100%" border="0" cellpadding="6">
+                    <tr>
+                        <td width="180">Degree:</td>
+                        <td>
+                            <select style="width: 50%; padding: 4px;">
+                                <option value="">select the Degree</option>
+                                <option value="btech">B.Tech</option>
+                                <option value="bca">BCA</option>
+                                <option value="bca">BBA</option>
+                                <option value="bca">Bsc</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Current Year:</td>
+                        <td><input type="text" style="width: 150px; padding: 4px;"></td>
+                    </tr>
+                    <tr>
+                        <td>Semester:</td>
+                        <td><input type="text" style="width: 150px; padding: 4px;"></td>
+                    </tr>
+                    <tr>
+                        <td>GPA:</td>
+                        <td><input type="text" style="width: 150px; padding: 4px;"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <br><br>
+    <button type="submit" style="background-color: #4a4a4a; color: #ffffff; padding: 
+10px 25px; border: none; border-radius: 20px; font-size: 15px; cursor: pointer;">
+        Save Profile
+    </button>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <title>Register - Student Hub</title> 
+    <style> 
+         
+        body{ 
+            margin: 0; 
+            padding: 0; 
+            min-height: 100vh; 
+            display: flex; 
+        justify-content: center;  
+            align-items: center;      
+            font-family: Arial, sans-serif; 
+            background-color: #eef2f6; 
+        } 
+         .center-container { 
+            text-align: left; 
+            width: 100%; 
+            max-width: 320px; 
+            padding: 20px; 
+        } 
+        input{ 
+            width: 100%; 
+            padding: 8px; 
+ } 
+        button{ 
+            width: 100%; 
+            padding: 8px; 
+        } 
+ 
+    </style> 
+</head> 
+<body> 
+    <div class="center-container"> 
+    <h2>Register for Student Hub</h2> 
+ 
+    <form action="# method="POST"> 
+        <div> 
+            <label for="fullname">Full Name</label><br> 
+            <input type="text" id="fullname" name="fullname" required> 
+        </div> 
+        <br> 
+ 
+        <div> 
+            <label for="rollnumber">ID / Roll number</label><br> 
+            <input type="text" id="rollnumber" name="rollnumber" required> 
+        </div> 
+        <br> 
+ 
+        <div> 
+            <label for="email">Email</label><br> 
+            <input type="email" id="email" name="email" required>
+             </div> 
+        <br> 
+ 
+        <div> 
+            <label for="department">Department</label><br> 
+            <input type="text" id="department" name="department" required> 
+        </div> 
+        <br> 
+ 
+        <div> 
+            <label for="password">Password</label><br> 
+            <input type="password" id="password" name="password" required> 
+        </div> 
+        <br> 
+ 
+        <div> 
+            <label for="confirmpassword">Confirmpasswoord</label><br> 
+         
+    <input type="password" id="confirmpassword" name="confirmpassword" required> 
+        </div> 
+        <br> 
+ 
+        <button type="submit">Register</button> 
+    </form> 
+ 
+ 
+    <div> 
+        <span>Already have an account?</span> 
+<a href="login.html">Login</a> 
+</div> 
+</div> 
+</body> 
+</html>

@@ -1,0 +1,60 @@
+[{
+    "name": "ruhanika",
+    "branch":"CSE",
+    "id": "25cs1",
+    "percentage":89,
+    "semester":3
+
+},
+{
+    "name": "ritvik",
+    "branch":"CSE",
+    "id": "25cs2",
+    "percentage":90,
+    "semester":3
+},
+{
+    "name": "rubina",
+    "branch":"CE",
+    "id": "26ce3",
+    "percentage":92,
+    "semester":1
+
+},
+{
+    "name": "karan",
+    "branch":"CE",
+    "id": "26ce100",
+    "percentage":85,
+    "semester":1
+},
+{
+    "name": "jasmin",
+    "branch":"CSE",
+    "id": "25cs90",
+    "percentage":95,
+    "semester":3  
+},
+{
+    "name": "tejaswi",
+    "branch":"CSE",
+    "id": "26cs100",
+    "percentage":75,
+    "semester":1
+},
+{
+    "name": "avinash",
+    "branch":"IT",
+    "id": "24it5",
+    "percentage":65,
+    "semester":5
+},
+{
+    "name": "vivan",
+    "branch":"IT",
+    "id": "25it5",
+    "percentage":79,
+    "semester":3
+}
+
+]

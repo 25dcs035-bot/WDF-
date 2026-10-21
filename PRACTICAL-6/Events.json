@@ -1,0 +1,35 @@
+[
+  {
+    "id": "event-101",
+    "title": "Hackathon & Coding Sprint",
+    "category": "Technical",
+    "icon": "💻",
+    "bannerClass": "banner-tech",
+    "date": "MARCH 25, 2026 • 10:00 AM",
+    "description": "Compete in a 24-hour coding challenge. Solve real-world problem statements and win exciting cash prizes.",
+    "location": "Lab 4, IT Building",
+    "registerUrl": "registration.html?event=101"
+  },
+  {
+    "id": "event-102",
+    "title": "Annual Cultural Fest",
+    "category": "Cultural",
+    "icon": "🎭",
+    "bannerClass": "banner-cultural",
+    "date": "APRIL 10, 2026 • 05:00 PM",
+    "description": "An evening filled with music, dance, theater, and live performances by university talent teams.",
+    "location": "Central Amphitheater",
+    "registerUrl": "registration.html?event=102"
+  },
+  {
+    "id": "event-103",
+    "title": "Inter-College Cricket League",
+    "category": "Sports",
+    "icon": "🏆",
+    "bannerClass": "banner-sports",
+    "date": "APRIL 22, 2026 • 08:30 AM",
+    "description": "Cheer for your department in the annual cricket championship tournament across three days.",
+    "location": "Sports Ground",
+    "registerUrl": "registration.html?event=103"
+  }
+]

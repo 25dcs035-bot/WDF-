@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Student Hub</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #eef2f6;
+            padding: 20px;
+        }
+
+        .center-container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #cccccc;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .center-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: #222222;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 16px; 
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1.5px solid #cccccc;
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #0000ee;
+        }
+
+        .error-message {
+            color: #d93025;
+            font-size: 12px;
+            display: none;
+        }
+
+        input.invalid, select.invalid {
+            border-color: #d93025;
+        }
+
+        button {
+            grid-column: span 2; 
+            padding: 12px;
+            background-color: #333333;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+
+        .login-link {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #555555;
+        }
+
+        .login-link a {
+            color: #0000ee;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            form {
+                grid-template-columns: 1fr; 
+            }
+
+            .full-width, button {
+                grid-column: span 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="center-container">
+        <h2>Register for Student Hub</h2>
+        <form id="registrationForm" action="#" method="POST" novalidate>
+        
+            <div class="form-group full-width">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname">
+                <span class="error-message" id="fullnameError">Please enter a valid name (letters and spaces only, min 2 characters).</span>
+            </div>
+
+            <div class="form-group">
+                <label for="rollnumber">ID / Roll number</label>
+                <input type="text" id="rollnumber" name="rollnumber">
+                <span class="error-message" id="rollnumberError">Roll number must contain alphanumeric characters (3-15 chars).</span>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile">
+                <span class="error-message" id="mobileError">Enter a valid 10-digit mobile number.</span>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email">
+                <span class="error-message" id="emailError">Enter a valid email address.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="course">Course</label>
+                <input type="text" id="course" name="course" placeholder="e.g. B.Tech">
+                <span class="error-message" id="courseError">Please enter your course.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="year">Year</label>
+                <select id="year" name="year">
+                    <option value="">Select Year</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select>
+                <span class="error-message" id="yearError">Please select your current year.</span>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="department">Department</label>
+                <input type="text" id="department" name="department">
+                <span class="error-message" id="departmentError">Please enter your department.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password">
+                <span class="error-message" id="passwordError">Must be 8+ chars, contain 1 letter, 1 number, and 1 special character.</span>
+            </div>
+
+        
+            <div class="form-group">
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" id="confirmpassword" name="confirmpassword">
+                <span class="error-message" id="confirmpasswordError">Passwords do not match.</span>
+            </div>
+
+            <button type="submit">Register</button>
+
+        </form>
+
+        <div class="login-link">
+            <span>Already have an account?</span>
+            <a href="login.html">Login</a>
+        </div>
+    </main>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+
+        const regexPatterns = {
+           
+            fullname: /^[a-zA-A\s]{2,50}$/,
+            
+            rollnumber: /^[a-zA-Z0-9]{3,15}$/,
+           
+            mobile: /^[6-9]\d{9}$/,
+           
+            email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+       
+            textOnly: /^[a-zA-Z0-9\s.-]{2,30}$/,
+            
+            password: /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/
+        };
+
+        
+        function validateInput(inputElement, errorElement, regex) {
+            const value = inputElement.value.trim();
+            const isValid = regex.test(value);
+
+            if (!isValid) {
+                inputElement.classList.add('invalid');
+                errorElement.style.display = 'block';
+                return false;
+            } else {
+                inputElement.classList.remove('invalid');
+                errorElement.style.display = 'none';
+                return true;
+            }
+        }
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); 
+            
+            const fullname = document.getElementById('fullname');
+            const rollnumber = document.getElementById('rollnumber');
+            const mobile = document.getElementById('mobile');
+            const email = document.getElementById('email');
+            const course = document.getElementById('course');
+            const year = document.getElementById('year');
+            const department = document.getElementById('department');
+            const password = document.getElementById('password');
+            const confirmpassword = document.getElementById('confirmpassword');
+
+            const fullnameErr = document.getElementById('fullnameError');
+            const rollnumberErr = document.getElementById('rollnumberError');
+            const mobileErr = document.getElementById('mobileError');
+            const emailErr = document.getElementById('emailError');
+            const courseErr = document.getElementById('courseError');
+            const yearErr = document.getElementById('yearError');
+            const departmentErr = document.getElementById('departmentError');
+            const passwordErr = document.getElementById('passwordError');
+            const confirmpasswordErr = document.getElementById('confirmpasswordError');
+
+            
+            const isNameValid = validateInput(fullname, fullnameErr, regexPatterns.fullname);
+            const isRollValid = validateInput(rollnumber, rollnumberErr, regexPatterns.rollnumber);
+            const isMobileValid = validateInput(mobile, mobileErr, regexPatterns.mobile);
+            const isEmailValid = validateInput(email, emailErr, regexPatterns.email);
+            const isCourseValid = validateInput(course, courseErr, regexPatterns.textOnly);
+            const isDeptValid = validateInput(department, departmentErr, regexPatterns.textOnly);
+            const isPasswordValid = validateInput(password, passwordErr, regexPatterns.password);
+
+            
+            let isYearValid = true;
+            if (year.value === '') {
+                year.classList.add('invalid');
+                yearErr.style.display = 'block';
+                isYearValid = false;
+            } else {
+                year.classList.remove('invalid');
+                yearErr.style.display = 'none';
+            }
+
+            
+            let isConfirmValid = true;
+            if (confirmpassword.value === '' || confirmpassword.value !== password.value) {
+                confirmpassword.classList.add('invalid');
+                confirmpasswordErr.style.display = 'block';
+                isConfirmValid = false;
+            } else {
+                confirmpassword.classList.remove('invalid');
+                confirmpasswordErr.style.display = 'none';
+            }
+            if (
+                isNameValid &&  isRollValid &&  isMobileValid &&
+                isEmailValid &&
+                isCourseValid &&
+                isYearValid &&
+                isDeptValid &&
+                isPasswordValid &&  isConfirmValid
+            ) {
+                alert('Registration Successful!');
+                form.reset();
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Student Hub Portal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: #eef2f6;
+            color: #333333;
+            font-family: Arial, Helvetica, sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 40px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            transition: background-color 0.3s ease;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-container img {
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .logo-container strong {
+            color: #1a1a1a;
+            font-size: 1.5rem;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav a {
+            padding: 8px 14px;
+            border-radius: 6px;
+            color: #4a4a4a;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: all 0.2s ease-in-out;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background-color: #4a4a4a;
+            color: #ffffff;
+        }
+
+        .theme-toggle-btn {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 12px;
+            border: 1px solid #cccccc;
+            border-radius: 20px;
+            background: transparent;
+            color: #333333;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .theme-toggle-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .hamburger-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 28px;
+            height: 20px;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .hamburger-btn span {
+            width: 100%;
+            height: 3px;
+            border-radius: 3px;
+            background-color: #1a1a1a;
+        }
+
+        .divider {
+            height: 1px;
+            border: 0;
+            background-color: #d1d5db;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .registration-card {
+            width: 100%;
+            padding: 32px;
+            border-radius: 12px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s ease;
+        }
+
+        .welcome-card {
+            margin-bottom: 24px;
+            padding: 24px;
+            border-left: 5px solid #4a4a4a;
+            border-radius: 8px;
+            background-color: #f8fafc;
+            text-align: center;
+        }
+
+        .welcome-card h1 {
+            margin-bottom: 8px;
+            color: #1a1a1a;
+            font-size: 1.8rem;
+        }
+
+        .welcome-card p {
+            color: #555555;
+            line-height: 1.6;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .full-width,
+        form button {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            color: #333333;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1.5px solid #cccccc;
+            border-radius: 4px;
+            background-color: #ffffff;
+            color: #222222;
+            font: inherit;
+        }
+
+        input:focus {
+            border-color: #4a4a4a;
+            outline: 2px solid rgba(74, 74, 74, 0.15);
+        }
+
+        .hint {
+            color: #555555;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+
+        .error-message {
+            display: none;
+            color: #b42318;
+            font-size: 12px;
+        }
+
+        input.invalid {
+            border-color: #b42318;
+        }
+
+        form button {
+            margin-top: 8px;
+            padding: 12px;
+            border: 0;
+            border-radius: 4px;
+            background-color: #333333;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        form button:hover {
+            background-color: #000000;
+        }
+
+        .login-link {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 20px;
+            color: #555555;
+            font-size: 14px;
+        }
+
+        .login-link a {
+            color: #333333;
+            font-weight: bold;
+        }
+
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode header,
+        body.dark-mode .registration-card {
+            background-color: #1e1e1e;
+        }
+
+        body.dark-mode .logo-container strong,
+        body.dark-mode .welcome-card h1,
+        body.dark-mode label {
+            color: #ffffff;
+        }
+
+        body.dark-mode nav a {
+            color: #cccccc;
+        }
+
+        body.dark-mode nav a:hover,
+        body.dark-mode nav a.active {
+            background-color: #ffffff;
+            color: #121212;
+        }
+
+        body.dark-mode .theme-toggle-btn {
+            border-color: #555555;
+            color: #ffffff;
+        }
+
+        body.dark-mode .theme-toggle-btn:hover,
+        body.dark-mode .welcome-card {
+            background-color: #292929;
+        }
+
+        body.dark-mode .welcome-card p,
+        body.dark-mode .hint,
+        body.dark-mode .login-link {
+            color: #aaaaaa;
+        }
+
+        body.dark-mode input {
+            border-color: #555555;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        body.dark-mode .hamburger-btn span {
+            background-color: #ffffff;
+        }
+
+        body.dark-mode .divider {
+            background-color: #333333;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            .logo-container strong {
+                font-size: 1.15rem;
+            }
+
+            .hamburger-btn {
+                display: flex;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                z-index: 99;
+                width: 100%;
+                flex-direction: column;
+                padding: 20px 0;
+                border-top: 1px solid #e0e0e0;
+                background-color: #ffffff;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            body.dark-mode nav {
+                border-top-color: #333333;
+                background-color: #1e1e1e;
+            }
+
+            nav.show {
+                display: flex;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .logo-container {
+                gap: 8px;
+            }
+
+            .logo-container img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo-container strong {
+                font-size: 1rem;
+            }
+
+            .header-actions {
+                gap: 10px;
+            }
+
+            .registration-card {
+                padding: 22px;
+            }
+
+            form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="../logo.jpg" alt="Student Hub Logo" width="50" height="50">
+            <strong>Student Hub Portal</strong>
+        </div>
+        <div class="header-actions">
+            <nav id="navMenu">
+                <a href="../login.html">Login</a>
+                <a href="../Dashboard.html">Dashboard</a>
+                <a href="../Events.html">Events</a>
+                <a href="../Contact.html">Contact</a>
+                <a href="../About.html">About</a>
+                <a href="../home.html">Home</a>
+                <a href="Register.html" class="active" aria-current="page">Register</a>
+            </nav>
+            <button class="theme-toggle-btn" id="themeBtn" type="button">
+                <span id="themeIcon">🌙</span> <span id="themeText">Dark</span>
+            </button>
+            <button
+                class="hamburger-btn"
+                id="hamburgerBtn"
+                type="button"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <hr class="divider">
+
+    <main>
+        <section class="registration-card">
+            <div class="welcome-card">
+                <h1>Register for Student Hub</h1>
+                <p>Create your student account using the form below.</p>
+            </div>
+
+            <form id="registrationForm" action="Register.php" method="post">
+                <div class="form-group full-width">
+                    <label for="full_name">Full name</label>
+                    <input
+                        type="text"
+                        id="full_name"
+                        name="full_name"
+                        required
+                        minlength="2"
+                        maxlength="100"
+                        autocomplete="name"
+                        pattern="[\p{L}\p{M} .'-]{2,100}"
+                        title="Use 2–100 letters, spaces, periods, apostrophes, or hyphens."
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        required
+                        minlength="3"
+                        maxlength="30"
+                        pattern="[A-Za-z0-9_]{3,30}"
+                        autocomplete="username"
+                        title="Use 3–30 letters, numbers, or underscores."
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        maxlength="254"
+                        autocomplete="email"
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        required
+                        minlength="8"
+                        maxlength="72"
+                        autocomplete="new-password"
+                        aria-describedby="passwordHint"
+                    >
+                    <small class="hint" id="passwordHint">
+                        Use at least 8 characters. Maximum 72 UTF-8 bytes.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password">Confirm password</label>
+                    <input
+                        type="password"
+                        id="confirm_password"
+                        name="confirm_password"
+                        required
+                        minlength="8"
+                        maxlength="72"
+                        autocomplete="new-password"
+                        aria-describedby="confirmError"
+                    >
+                    <span class="error-message" id="confirmError" role="alert">
+                        Passwords do not match.
+                    </span>
+                </div>
+
+                <button type="submit">Register</button>
+            </form>
+
+            <div class="login-link">
+                <span>Already have an account?</span>
+                <a href="../login.html">Login</a>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById("registrationForm");
+        const password = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirm_password");
+        const confirmError = document.getElementById("confirmError");
+        const hamburgerBtn = document.getElementById("hamburgerBtn");
+        const navMenu = document.getElementById("navMenu");
+        const themeBtn = document.getElementById("themeBtn");
+        const themeIcon = document.getElementById("themeIcon");
+        const themeText = document.getElementById("themeText");
+
+        function checkPasswords() {
+            const matches = confirmPassword.value === password.value;
+            const hasConfirmation = confirmPassword.value.length > 0;
+
+            confirmPassword.classList.toggle("invalid", hasConfirmation && !matches);
+            confirmError.style.display = hasConfirmation && !matches ? "block" : "none";
+            confirmPassword.setCustomValidity(matches ? "" : "Passwords do not match.");
+        }
+
+        password.addEventListener("input", checkPasswords);
+        confirmPassword.addEventListener("input", checkPasswords);
+
+        form.addEventListener("submit", function (event) {
+            checkPasswords();
+
+            if (new TextEncoder().encode(password.value).length > 72) {
+                event.preventDefault();
+                password.setCustomValidity("Password must be no more than 72 UTF-8 bytes.");
+                password.reportValidity();
+                return;
+            }
+
+            password.setCustomValidity("");
+        });
+
+        hamburgerBtn.addEventListener("click", function () {
+            const isOpen = navMenu.classList.toggle("show");
+            hamburgerBtn.setAttribute("aria-expanded", String(isOpen));
+        });
+
+        themeBtn.addEventListener("click", function () {
+            document.body.classList.toggle("dark-mode");
+            const isDarkMode = document.body.classList.contains("dark-mode");
+            themeIcon.textContent = isDarkMode ? "☀️" : "🌙";
+            themeText.textContent = isDarkMode ? "Light" : "Dark";
+        });
+    </script>
+</body>
+</html>
